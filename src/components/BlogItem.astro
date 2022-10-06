@@ -1,0 +1,18 @@
+---
+const {post} = Astro.props
+---
+<article>
+  <img class="w-full object-cover" src={post.frontmatter.heroImage} />
+  <div class="p-20">
+    <a href={post.url}><h1 class="text-4xl font-extrabold">{post.frontmatter.title}</h1></a>
+    <section class="text-xl" set:html={post.frontmatter.description} />
+  </div>
+  <time datetime={post.frontmatter.pubDate}>
+    {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })}
+  </time>
+  
+</article>

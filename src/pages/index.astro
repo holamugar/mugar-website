@@ -1,0 +1,31 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import BlogItem from '../components/BlogItem.astro';
+
+const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="flex w-full">
+		<Header title={SITE_TITLE} />
+		<main class="w-2/3 bg-gray-200">
+			<section class="bg-white ml-16 max-w-3xl">
+				<ul>
+					{posts.map((post) => (
+						<li>
+							<BlogItem {post} />
+						</li>
+					))}
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

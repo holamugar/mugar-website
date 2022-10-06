@@ -1,0 +1,27 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+---
+
+<header class="w-1/3 mt-20 bg-white pr-4 flex flex-col items-end">
+	<div class="mr-10 max-w-xs fixed">
+		<a href="/"><img src="/logo.png" width="250" class="my-4" /></a>
+		<h2 class="text-3xl font-bold tracking-wider">
+			{SITE_TITLE}
+		</h2>
+		<h3 class="text-lg text-gray-500">{SITE_DESCRIPTION}</h3>
+		<nav class="flex flex-col my-20">
+			<HeaderLink href="/calendario">Calendario</HeaderLink>
+			<HeaderLink href="/blog">Código de conducta</HeaderLink>
+			<HeaderLink href="/blog">Cómo escribimos módulos</HeaderLink>
+			<HeaderLink href="/blog">Cómo contribuir con los módulos</HeaderLink>
+			<HeaderLink href="/about">Nuestras meetups</HeaderLink>
+			<HeaderLink href="/about">Roadmap</HeaderLink>
+		</nav>
+
+		<nav>
+			<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
+			<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
+		</nav>
+	</div>
+</header>
